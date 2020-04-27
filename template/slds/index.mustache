@@ -2,38 +2,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/css-phaast@0.0.2/phaast.css">
+    <script type="text/javascript" src="https://unpkg.com/css-phaast@0.0.2/phaast.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="./styles/code.css">
     <title>{{title}}</title>
-    {{{headers}}}
 </head>
-<body class="slds-scrollable--y">
-    <nav class="slds-grid slds-grid--vertical slds-col--rule-right">
-        <header class="slds-p-around--medium slds-col slds-shrik slds-grow-none">
-            <button class="slds-button slds-button--icon slds-float--right js-toggle-navigation less-than-medium">
-                <i class="material-icons">close</i>
-            </button>
-            {{#projectPackage.graphdoc.logo}}
-                {{{projectPackage.graphdoc.logo}}}
-            {{/projectPackage.graphdoc.logo}}
-            {{^projectPackage.graphdoc.logo}}
-                <h3 class="slds-text-heading--medium"><a href="{{{projectPackage.graphdoc.baseUrl}}}">GraphQL Schema</a></h3>
-            {{/projectPackage.graphdoc.logo}}
-            <div class="slds-p-top--small">
-                <input id="type-search" type="text" placeholder="Search a type" autofocus="" class="slds-input" />
-            </div>
-        </header>
-        <div id="navication-scroll" class="slds-scrollable--y slds-col slds-grow">
-            {{> nav}}
-        </div>
+<body>
+    <nav class="nav-bar px-0">
+        <section class="inner-container mw-80 px-1">
+            <a class="main-item" href="/saas/phaast-css/">Ledger API</a>
+            <ul class="menu-list -responsive">
+            <li class="item">
+                <a href="/saas/phaast-css/documentation/getting-started">Documentation</a>
+            </li>
+            <li class="item -mobile menu-container">
+                <a class="menu-trigger">
+                <i class="fas fa-bars icon -rounded -white -bg-primary"></i>
+                </a>
+                <ul class="menu -bordered -interactive">
+                <li class="item">
+                    <a href="/saas/phaast-css/documentation/getting-started">Documentation</a>
+                    <h3><a href="{{{projectPackage.graphdoc.baseUrl}}}">GraphQL Schema</a></h3>
+                </li>
+                </ul>
+            </li>
+            </ul>
+        </section>
     </nav>
-    <main>{{> main}}</main>
-    <script src="./scripts/focus-active.js"></script>
-    <script src="./scripts/filter-types.js"></script>
-    <script src="./scripts/toggle-navigation.js"></script>
+    <main class="column-container -with-sidebar px-1 mw-80 mb-2" role="main">
+        {{> nav}}
+        {{> main}}
+        <a class="scrolltop-button icon -white -medium -bg-primary fas fa-angle-up" style="display: block;"></a>
+    </main>
     {{#projectPackage.graphdoc.ga}}
     <script>
         (function (i, s, o, g, r, a, m) {

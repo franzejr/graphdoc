@@ -1,15 +1,16 @@
 {{! Only navs varaible is defined: @example: navs: [ { title: String, items: [ { href: String, text: String } -- MORE ITEMS
---- ] } -- MORE NAVS -- ] }}{{#navigations}}
-<div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
-    <h4 class="slds-text-title--caps slds-p-around--medium">{{title}}</h4>
-    <ul>
-        {{#items}}
-        <li {{#isActive}}class="slds-is-active"{{/isActive}} title="{{text}}">
-            <a href="{{{href}}}" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                {{text}}
-            </a>
-        </li>
-        {{/items}}
-    </ul>
-</div>
-{{/navigations}}
+--- ] } -- MORE NAVS -- ] }}
+<aside class="sidebar pr-tablet-2">
+    {{#navigations}}
+        <ul class="dropdown -js-dropdown -primary show" style="height: auto;">
+            <li class="item dropdown-handler -info">{{title}}</li>
+            {{#items}}
+                <li {{#isActive}}class="active-link item"{{/isActive}} title="{{text}}">
+                    <a data-route="alerts" {{#isActive}}class="active-link"{{/isActive}} href="{{{href}}}" >
+                        {{text}}
+                    </a>
+                </li>
+            {{/items}}
+        </ul>
+    {{/navigations}}
+</aside>
